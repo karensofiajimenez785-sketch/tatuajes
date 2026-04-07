@@ -1,0 +1,684 @@
+/*fondo para todas las vistas*/
+.body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-image: url(img/tigre2.jpeg);
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+/*eestilos de la página de inicio*/
+
+
+
+
+
+/* Título principal de la página de inicio */
+.div1_inicio {
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: unset;
+  font-size: 2.4rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 18px 24px;
+  font-style: italic;
+  color: #ffd500;
+  font-variant-ligatures: common-ligatures;
+
+
+}
+
+/* Contenedor de botones de registro e inicio en la página de inicio */
+.div2_inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+  padding: 55px;
+  width: min(90%, 340px);
+  border-radius: 12px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.13);
+  font-style: italic;
+  font-variant-ligatures: common-ligatures;
+}
+
+/* Estilos para botones de registro e inicio */
+.registro,
+.inicio {
+  padding: 2px 20;
+  background-color: #ffd500;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 180px;
+}
+
+/* Efecto hover para botones de registro e inicio */
+.registro:hover,
+.inicio:hover {
+  background-color: #57be9d;
+  color: aliceblue
+}
+
+/* Estilo para el logo en la página de inicio */
+.logo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+
+
+/*estilos de registro*/
+
+
+
+
+
+/* Contenedor de campos de registro */
+.campo_registro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+/* Etiquetas de los campos de registro */
+.campo_registro label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ffd500;
+}
+
+.campo_registro input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Efecto focus para inputs de registro */
+.campo_registro input:focus {
+  outline: none;
+  border-color: #57be9d;
+  box-shadow: 0 0 5px rgba(173, 239, 218, 0.3);
+}
+
+/* Contenedor principal del formulario de registro */
+.contenRegistro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: #ffd500;
+  margin: 40px auto;
+  padding: 40px;
+  width: min(90%, 450px);
+  border-radius: 12px;
+  box-shadow: 0 2px 7px rgba(148, 148, 145, 0.13);
+}
+
+/* Título del formulario de registro */
+.contenRegistro h1 {
+  color: #ffd500;
+  font-size: 2rem;
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+}
+
+/* Campos del formulario de registro */
+.form-fields_registro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Fila de botones en el formulario de registro */
+.button-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Botón de registro */
+.btn-registro {
+  padding: 12px 30px;
+  background-color: #ffd500;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 180px;
+  transition: background-color 0.3s;
+}
+
+/* Efecto hover para botón de registro */
+.btn-registro:hover {
+  background-color: #57be9d;
+  color: #fff;
+}
+
+/* Botón de limpiar en registro */
+.btn-limpiar_registro {
+  padding: 12px 30px;
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 180px;
+  transition: background-color 0.3s;
+}
+
+/* Efecto hover para botón de limpiar registro */
+.btn-limpiar_registro:hover {
+  background-color: #999;
+  color: #fff;
+}
+
+/* Mensaje de error en registro */
+.errorMensaje_re {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 3px;
+  display: none;
+}
+
+/* Mensaje de éxito en registro */
+.success-message_registro {
+  color: #388e3c;
+  font-size: 0.95rem;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+
+/* Indicador de coincidencia de contraseñas */
+.password-match {
+  color: #388e3c;
+  font-size: 0.85rem;
+  display: none;
+  margin-top: 3px;
+}
+
+/* Indicador de no coincidencia de contraseñas */
+.password-mismatch {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  display: none;
+  margin-top: 3px;
+}
+
+
+/* Contenedor principal de inicio de sesión */
+.contenInicioSesion {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  font-style: italic;
+  color: #ffd500;
+  width: 100%;
+}
+
+/* Etiquetas de campos en inicio de sesión */
+.campo_registro_inicio label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #ffd500;
+}
+
+.campo_registro_inicio input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Efecto focus para inputs de inicio de sesión */
+.campo_registro_inicio input:focus {
+  outline: none;
+  border-color: #286954;
+  box-shadow: 0 0 5px rgba(40, 105, 84, 0.3);
+}
+
+/* Contenedor de campos de inicio de sesión */
+.campo_registro_inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 40px auto;
+  padding: 0px;
+  width: min(90%, 450px);
+  border-radius: 12px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.13);
+
+}
+
+/* Título de inicio de sesión */
+.campo_registro_inicio h1 {
+  color: #286954;
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+
+
+
+
+/*estilos de inicio de sesión*/
+
+
+
+
+
+/* Campos del formulario de inicio de sesión */
+.form-fields_inicioSesion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Fila de botones en inicio de sesión */
+.button-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Botón de inicio de sesión */
+.btn-inicio {
+  padding: 12px 30px;
+  background-color: #ffd500;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 180px;
+  transition: background-color 0.3s;
+}
+
+/* Efecto hover para botón de inicio */
+.btn-inicio:hover {
+  background-color: #57be9d;
+  color: #fff;
+}
+
+/* Botón de limpiar en inicio de sesión */
+.btn-limpiar_inicio {
+  padding: 12px 30px;
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 180px;
+  transition: background-color 0.3s;
+}
+
+/* Efecto hover para botón de limpiar inicio */
+.btn-limpiar:hover {
+  background-color: #48ff42;
+  color: #fff;
+}
+
+/* Mensaje de error en inicio de sesión */
+.error-message_inicio {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 3px;
+  display: none;
+}
+
+/* Mensaje de éxito en inicio de sesión */
+.success-message_inicio {
+  color: #388e3c;
+  font-size: 0.95rem;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+
+/* Enlace de olvido de contraseña */
+.forgot-password_inicio {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.forgot-password_inicio a {
+  color: #ffd500;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Efecto hover para enlace de olvido de contraseña */
+.forgot-password_inicio a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+/*estilos de la página home*/
+
+
+
+
+
+/* Estilo general del body en home */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-image: url(img/tigre2.jpeg);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header de la página home */
+header {
+  background-color: #ffd500;
+  display: flex;
+  padding: 1rem;
+}
+
+/* Encabezado del home */
+.encabezado_home {
+  font-style: italic;
+  flex: 1;
+  text-align: left;
+  color: rgb(0, 0, 0);
+}
+
+/* Botón de cerrar sesión */
+.boton_cerrar_sesion {
+  padding: 0.5rem 1rem;
+  background-color: #286954;
+  text-decoration: underline;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.botones_home {
+  display: flex;
+  flex: 1;
+}
+
+/* Barra lateral con botones de navegación */
+aside {
+  width: 20%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+aside button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 1.5rem;
+  background-color: #ffd500;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+}
+
+/* Efecto hover para botones de navegación */
+aside button:hover {
+  background-color: #57be9d;
+}
+
+/* Contenedor del chat */
+#chat {
+  width: 80%;
+  padding: 0.5rem;
+  color: #ffd500;
+  font-style: italic;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área de mensajes del chat */
+#chat-messages {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Mensajes del usuario en el chat */
+.mensaje-usuario {
+  text-align: right;
+  margin-bottom: 10px;
+  color: #ffd500;
+}
+
+/* Mensajes de la IA en el chat */
+.mensaje-ia {
+  text-align: left;
+  margin-bottom: 10px;
+  color: #ffd500;
+}
+
+/* Contenedor de input del chat */
+#chat-input {
+  display: flex;
+}
+
+/* Input de mensaje */
+#message-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Botón de enviar mensaje */
+#sendButton {
+  padding: 8px 16px;
+  background-color: #ffd500;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+/* Efecto hover para botón de enviar */
+#sendButton:hover {
+  background-color: #57be9d;
+}
+
+
+
+
+
+/*estilos de ubicación*/
+
+
+
+
+
+/* Contenedor de la página de ubicación */
+.contenUbicacion {
+  display: flex;
+  padding: 100px;
+  border-radius: 12px;
+  box-shadow: 0 2px 7px rgba(148, 148, 145, 0.13);
+}
+
+#mensaje_ubicacion {
+  background-color: #ffd500;
+  color: #000000;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+  margin-bottom: 0;
+  padding: 12px 15px;
+  border: none;
+  flex: 1;
+  min-width: 200px;
+}
+
+#mensaje_ubicacion:focus {
+  outline: none;
+  border-color: #286954;
+  box-shadow: 0 0 5px rgba(173, 239, 218, 0.3);
+}
+
+.label_busqueda {
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #ffd500;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.contenedor_busqueda {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+
+.boton_ubicacion {
+  margin: 10px;
+  padding: 12px 30px;
+  background-color: #ffd500;
+  text-align: center;
+  top: 50%;
+  font-style: italic;
+  color: #000000;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 250px;
+}
+.boton_ubicacion:hover {
+  background-color: #57be9d;
+  color: #fff;
+}
+
+.dropdown_ciudades {
+  padding: 12px 15px;
+  background-color: #ffd500;
+  color: #000000;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+  min-width: 180px;
+  transition: background-color 0.3s;
+}
+
+.dropdown_ciudades:hover {
+  background-color: #57be9d;
+  color: #fff;
+}
+
+.dropdown_ciudades:focus {
+  outline: none;
+  border-color: #286954;
+  box-shadow: 0 0 5px rgba(173, 239, 218, 0.3);
+}
+
+
+.mapa{
+  padding: 0.5rem 1.5rem;
+  justify-content: right; 
+  width: 150%;
+  height: 150%;
+  border: none;
+  display: flex;
+}
+
+
+
+/*estilos de eventos*/
+
+
+
+/*Contenedor de la página de ubicación*/
+
+.contenEventos{
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #5b5a5a;
+  margin: 40px auto;
+  padding: 40px;
+  width: min(90%, 450px);
+  border-radius: 12px;
+  box-shadow: 0 2px 7px rgba(148, 148, 145, 0.13);
+}
+.titulo_eventos{
+  font-size: 1.5rem;
+  background-color: #ffd500;
+  font-size: smaller;
+  font-style: italic;
+  width: 30%;
+  padding: 0.5px;
+  border-radius: 3%;
+  color: #000000;
+  text-align: center;
+  margin: 0 auto 20px auto;
+  display: block;
+}
+
+.evento{
+  background-color: #fff;
+  padding: 15px;
+  margin: 50px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.evento:hover {
+  background-color: #57be9d;
+}
+

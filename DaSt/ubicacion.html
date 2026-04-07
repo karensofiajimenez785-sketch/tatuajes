@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contenUbicacion">
+        <div class="selec_ubicacion">
+            <label for="ciudades" class="label_busqueda">Busca tu ubicación</label>
+            <div class="contenedor_busqueda">
+                <input type="text" id="mensaje_ubicacion" placeholder="Escribe o selecciona una ciudad">
+                <select id="ciudades" class="dropdown_ciudades">
+                    <option value="">Selecciona una ciudad</option>
+                    <option value="Armenia">Armenia</option>
+                    <option value="Buenavista">Buenavista</option>
+                    <option value="Calarcá">Calarcá</option>
+                    <option value="Circasia">Circasia</option>
+                    <option value="Córdoba">Córdoba</option>
+                    <option value="Filandia">Filandia</option>
+                    <option value="Genova">Genova</option>
+                    <option value="La_tebaida">La Tebaida</option>
+                    <option value="Montenegro">Montenegro</option>
+                    <option value="Pijao">Pijao</option>
+                    <option value="Quimbaya">Quimbaya</option>
+                    <option value="Salento">Salento</option>
+                </select>
+            </div>
+             
+        </div>
+         <div class="click_mapa">
+        <div class="mapa">
+           <a href="https://maps.google.com/"><img  src="img/ubicacion.jpg" alt="" width="50%" height="50%"></a>
+        </div>
+    </div>
+
+    </div>
+   
+    </div>
+    <script>
+        const ciudadesSelect = document.getElementById('ciudades');
+        const inputUbicacion = document.getElementById('mensaje_ubicacion');
+
+        // Cuando selecciones una ciudad en el dropdown
+        ciudadesSelect.addEventListener('change', function() {
+            const selectedText = this.options[this.selectedIndex].text;
+            if (this.value) {
+                inputUbicacion.value = selectedText;
+            } else {
+                inputUbicacion.value = '';
+            }
+        });
+
+        // Permitir escribir en el input y filtrar el dropdown
+        inputUbicacion.addEventListener('input', function() {
+            const valor = this.value.toLowerCase();
+            for (let option of ciudadesSelect.options) {
+                if (option.text.toLowerCase().includes(valor) || option.value === '') {
+                    option.style.display = 'block';
+                } else {
+                    option.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+
+
+<body>
+    <header>
+        <div class="encabezado_home">
+            <h1>Bienvenido a DaSt</h1>
+        </div>
+        <div>
+            <button class="boton_cerrar_sesion">Cerrar Sesión</button>
+        </div>
+
+    </header>
+    <div class="botones_home">
+        <aside>
+            <button onclick="location.href='ubicacion.html'">Ubicación</button>
+            <button onclick="location.href='eventos.html'">Eventos</button>
+            <button>Estudios</button>
+            <button>Chat Artista</button>
+            <button>Resumen del Pedido</button>
+            <button>Pago</button>
+        </aside>
+        <div id="chat">
+            <h2>Chat con Asistente</h2>
+            <div id="chat-messages" class="chat-container">
+                <!-- Mensajes del chat aparecerán aquí -->
+            </div>
+            <div id="chat-input">
+                <input type="text" id="message-input" placeholder="Escribe tu mensaje...">
+                <button id="sendButton" onclick="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function enviarMensaje() {
+            const input = document.getElementById('message-input');
+            const mensaje = input.value.trim();
+            if (!mensaje) return;
+
+            // Agregar mensaje del usuario al chat
+            agregarMensajeUsuario(mensaje);
+            input.value = '';
+
+            // Mostrar mensaje de carga
+            const loadingMsg = agregarMensajeAsistente('Analizando tu consulta...');
+
+            try {
+                const response = await fetch('http://localhost:3000/api/v1/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        mensaje: mensaje,
+                        tipo: 'texto'
+                    })
+                });
+
+                const data = await response.json();
+                console.log('Respuesta Gemini:', data);
+
+                // Remover mensaje de carga
+                if (loadingMsg) loadingMsg.remove();
+
+                // Procesar respuesta de Gemini
+                if (data.candidates && data.candidates[0]) {
+                    const texto = data.candidates[0].content.parts[0].text;
+                    agregarMensajeAsistente(texto);
+                } else {
+                    agregarMensajeAsistente('Lo siento, no pude procesar tu solicitud. Por favor, intenta de nuevo.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                if (loadingMsg) loadingMsg.remove();
+                agregarMensajeAsistente('Error al conectar con el asistente. Verifica tu conexión.');
+            }
+        }
+
+        function agregarMensajeUsuario(texto) {
+            const chatContainer = document.getElementById('chat-messages');
+            const mensajeDiv = document.createElement('div');
+            mensajeDiv.className = 'mensaje-usuario';
+            mensajeDiv.innerHTML = `<p><strong>Tú:</strong> ${texto}</p>`;
+            chatContainer.appendChild(mensajeDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function agregarMensajeAsistente(texto) {
+            const chatContainer = document.getElementById('chat-messages');
+            const mensajeDiv = document.createElement('div');
+            mensajeDiv.className = 'mensaje-ia';
+            mensajeDiv.innerHTML = `<p><strong>Asistente:</strong> ${texto}</p>`;
+            chatContainer.appendChild(mensajeDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return mensajeDiv;
+        }
+
+        // Event listener para Enter
+        document.getElementById('message-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                enviarMensaje();
+            }
+            
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="body">
+
+    <div class="contenInicioSesion">
+        <h1>Inicio de Sesión</h1>
+
+        <form id="loginForm" class="form-fields_inicioSesion">
+            <!-- Usuario -->
+            <div class="campo_registro_inicio">
+                <label for="usuario">Usuario *</label>
+                <input type="name" id="usuario" name="usuario" placeholder="Usuario" required>
+                <span class="error-message_inicio" id="error-usuario"></span>
+            </div>
+
+            <!-- Correo -->
+            <div class="campo_registro_inicio">
+                <label for="correo">Correo *</label>
+                <input type="email" id="correo" name="correo" placeholder="Ingrese su correo" required>
+                <span class="error-message_inicio" id="error-correo"></span>
+            </div>
+
+            <span class="success-message_inicio" id="successMessage"></span>
+
+            <!-- Botones -->
+            <div class="button-row">
+                <button type="submit" class="btn-inicio">
+                    Iniciar Sesión
+                </button>
+                <button type="reset" class="btn-limpiar_inicio">
+                    Limpiar
+                </button>
+            </div>
+        </form>
+
+        <div class="forgot-password_inicio">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <p style="text-align: center; margin-top: 15px; color: aliceblue;">
+            ¿No tienes cuenta? <a href="registro_inicio_sesion.html"
+                style="color: hsl(175, 96%, 58%); text-decoration: none; font-weight: bold;">Regístrate aquí</a>
+        </p>
+    </div>
+    <script>
+
+        document.getElementById("loginForm")
+            .addEventListener("submit", function (e) {
+
+                e.preventDefault();
+
+                let usuario =
+                    document.getElementById("usuario").value;
+
+                let correo =
+                    document.getElementById("correo").value;
+
+                /* Crear objeto */
+
+                let datosUsuario = {
+
+                    usuario: usuario,
+                    correo: correo
+
+                };
+
+                /* Guardar en localStorage */
+
+                localStorage.setItem("usuarioActivo",
+                    JSON.stringify(datosUsuario));
+
+                /* Mensaje */
+
+                document.getElementById("successMessage")
+                    .textContent = "Inicio correcto";
+
+                /* Redireccion */
+
+                setTimeout(() => {
+
+                    window.location.href = "home.html";
+
+                }, 1000);
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>
